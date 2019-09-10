@@ -1,0 +1,166 @@
+package proyecto;
+
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Proyecto {
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        System.out.println("---------------------------------\n" +
+"|        Menú Principal      |\n" +
+"---------------------------------\n" +
+"|   1.- Vectores		|\n" +
+"|   2.- Matrices		|\n" +
+"|   3.- Antecedentes	|\n" +
+"|   4.- Salir		|\n" +
+"---------------------------------\n" +
+"|          Opción: [   ]          |\n" +
+"---------------------------------");
+ int op=sc.nextInt();
+        switch (op){
+        //option1    
+        case 1:
+            //vector 1
+            Random x = new Random(); 
+            int []vector=new int[10];
+                for (int j = 0; j < vector.length; j++) {    
+                vector[j]= x.nextInt(101);
+                    System.out.print("["+vector[j]+"]");
+                }
+            //vector 2    
+            System.out.println(""); 
+            System.out.println("=============================================");
+            int[]vector1=new int[10];
+                for (int i=0;i<vector.length;i++){
+                     boolean sw=true;
+                     while (sw){
+                     System.out.println("Ingrese número rango [101 a 150]");
+                        int NumeroIngresado=sc.nextInt();
+                        if(NumeroIngresado>=101&&NumeroIngresado<=150){
+                            vector1[i]=NumeroIngresado;
+                            sw=false;
+                             } else {
+                        System.out.println("Fuera de rango. Vuelva a intentar");
+                        }
+                    }
+                }
+            System.out.println(""); 
+            System.out.println("=============================================");
+            //enter
+            System.out.println("Precione Enter para ordenar de forma ascendentemente");
+            Scanner t = new Scanner(System.in);
+            Logic obj = new Logic();
+            String enterkey = t.nextLine();
+                Arrays.sort(vector);
+                System.out.print("A=");
+                System.out.println(Arrays.toString(vector));
+            System.out.println(""); 
+            System.out.println("=============================================");
+            Arrays.sort(vector1);
+                System.out.print("B=");
+                System.out.println(Arrays.toString(vector1));    
+        break;
+        //option2
+        case 2:
+            int[][]matriz=new int[5][5];
+            int[][]matriz1=new int[5][5];
+            int[][]matriz2=new int[5][5];
+            
+            Random r = new Random();
+            for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                matriz[i][j] = r.nextInt(101);
+            }
+            }
+            Random ra = new Random();
+            for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                matriz1[i][j] = ra.nextInt(101);
+            }
+            }
+            for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {        
+                System.out.print("["+matriz[i][j] + "]");
+            }
+            System.out.println("");
+            }
+            System.out.println("");
+            for (int i = 0; i < matriz1.length; i++) {
+            for (int j = 0; j < matriz1.length; j++) {
+                System.out.print("["+matriz1[i][j] + "]");
+            }
+            System.out.println("");
+            }
+            for (int i=0; i<matriz.length; i++){
+                for (int j=0; j<matriz.length; j++){
+                 matriz2[i][j]= matriz[i][j]*matriz1[i][j];
+            }
+            }
+            System.out.println("");
+            System.out.println("=========== Multiplicacion de ambas matrices =============");
+            System.out.println("");
+            for (int i = 0; i < matriz1.length; i++) {
+            for (int j = 0; j < matriz1.length; j++) {
+                System.out.print("["+matriz2[i][j] + "]");
+            }
+            System.out.println("");
+            }
+            System.out.println("===========DIAGONAL PRINCIPAL MATRIZ A  Y B =============");
+            int DA=0;
+            int DB=0;
+            int DA1=0;
+            int DB1=0;
+            //lado izquierdo a derecho
+            for (int i=0;i<matriz.length; i++) {
+            for (int j=0;j<matriz.length; j++) {
+               if(i==j){
+                    System.out.print("\t"+matriz[i][j]);
+                    DA=DA+matriz[i][j];
+               }
+            }
+        }
+            System.out.println(" ---->> DA: "+DA);
+            for (int i=0;i<matriz1.length; i++) {
+            for (int j=0;j<matriz1.length; j++) {
+                if(i==j){
+                    System.out.print("\t"+matriz1[i][j]);
+                    DB=DB+matriz1[i][j]; 
+               }
+            }
+        }
+            System.out.println(" ---->> DB: "+DB);
+            //lado derecho a izquierdo
+            for (int i=0;i<matriz.length; i++) {
+                for (int j=5;j<=0; j--) {
+                if(i==j){
+                    System.out.print("\t"+matriz[i][j]);
+                    DA1=DA1+matriz[i][j];
+               }
+            }
+        }
+            System.out.println(" ---->> DA: "+DA1);
+            for (int i=0;i<matriz1.length; i++) {
+            for (int j=5;j<0; j--) {
+                if(i==j){
+                    System.out.print("\t"+matriz1[i][j]);
+                    DB1=DB1+matriz1[i][j]; 
+               }
+            }
+        }
+            System.out.println(" ---->> DB: "+DB1);
+            break;
+        case 3:
+            System.out.println("-------------------------------------------------------------------\n" +
+"|            Proyecto de POO Desarrollado por:                    |\n" +
+"|              Luis Ignacio Hernández curumilla                   |\n" +
+"|                               Sección 15                        |\n" +
+"-------------------------------------------------------------------");
+        case 4:
+            System.out.println("Hasta la proxima");
+            System.out.println("Navarro chupalo owo");
+        break;    
+        }    
+    }  
+}
+
