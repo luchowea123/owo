@@ -1,0 +1,151 @@
+package ejercicio;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Ejercicio {
+
+    public static void main(String[] args) {
+        ArrayList <Alumno> a=new ArrayList<>();
+        ArrayList <Alumno> b=new ArrayList<>();
+        Scanner sc=new Scanner(System.in);
+        boolean salir=false;
+        int op;
+        while (!salir){
+        System.out.println("1.Ingresar Alumno");
+        System.out.println("2.Ingresar Notas");
+        System.out.println("3.Eliminar Alumno");
+        System.out.println("4.Modificar Alumno");
+        System.out.println("5.Lista de Alumnos ");
+        System.out.println("6.Salir");
+        op=sc.nextInt();
+        switch(op){
+            case 1:
+                System.out.println("=====Ingrese Alumno=====");
+                System.out.println("Ingrese nombre: ");
+                String nombre=sc.next();
+                System.out.println("Ingrese apellido: ");
+                String apellido=sc.next();
+                Alumno nuevoAlumno=new Alumno();
+                nuevoAlumno.setNombre(nombre);
+                nuevoAlumno.setApellido(apellido);
+                a.add(nuevoAlumno);
+                break;
+            case 2:
+                System.out.println("=====Ingreso De Notas=====");
+                System.out.println("Ingrese nota 1: ");
+                int nota1 = sc.nextInt();
+                System.out.println("Ingrese nota 2: ");
+                int nota2 = sc.nextInt();
+                System.out.println("Ingrese nota 3: ");
+                int nota3 = sc.nextInt();
+                Alumno nuevoNotas=new Alumno();
+                nuevoNotas.setNota1(nota1);
+                nuevoNotas.setNota2(nota2);
+                nuevoNotas.setNota3(nota3);
+                b.add(nuevoNotas);
+                break;
+            case 3:
+                System.out.println("=====Eliminar Alumno=====");
+                for (int i=0;i<a.size();i++){
+                    Alumno temp = a.get(i);
+                    System.out.println("Lista de alumnos");
+                System.out.println((i+1) + ")"+"Nombre: "+temp.getNombre()+ " Apellido: "+temp.getApellido());
+                }
+                int AlumnoEliminar;
+                System.out.println("¿Que alumno desea eliminar?");
+                AlumnoEliminar=sc.nextInt();
+                for(int i=0;i<a.size();i++){
+                if (a.get(i).nombre.equals(AlumnoEliminar))
+                    a.remove(i); 
+                }
+                break;
+            case 4:
+                System.out.println("Que Alumno quiere modificar?");
+//                for (int i = 0; i < a.size(); i++) {
+//                    Alumno temp = a.get(i);
+//                    Alumno temp1 = b.get(i);
+//                    System.out.println((i + 1) + ")" + "Nombre: " + temp.getNombre().toUpperCase() + " Apellido: " + temp.getApellido() + " Nota 1: " + temp1.getNota1() + " Nota 2: " + temp1.getNota2() + " Nota 3:" + temp1.getNota3());
+//                    }
+//                    int alumnoSeleccionado = sc.nextInt();
+//                    Alumno aux=Alumno.get(alumnoSeleccionado);
+//                    System.out.println("Ingrese nuevo nombre: ");
+//                    String nuevoNombre = sc.next();
+//                    aux.setNombre(nuevoNombre);
+//                    System.out.println("Ingrese nuevo apellido");
+//                    String nuevoApellido = sc.next();
+//                    aux.setApellido(nuevoApellido);
+//                    a.add(aux);
+//                    System.out.println("Modificacion exitosa");
+                    
+               
+                break;
+            case 5:
+                System.out.println("Listado de alumnos");
+                for (int i=0;i<a.size();i++){
+                Alumno temp=a.get(i);
+                Alumno temp1=b.get(i);
+                System.out.println((i+1)+ ")"+ "Nombre: "+temp.getNombre()+" Apellido: "+temp.getApellido()+" Nota 1: "+temp1.getNota1()+" Nota 2: "+temp1.getNota2()+" Nota 3: "+temp1.getNota3());
+                }
+                break;
+            case 6:
+                salir=true;
+                break;
+            default:
+                System.out.println("Peticion no reconocida,Intente nuevamente");
+            }
+        }
+    }
+ }
+//
+objeto
+package ejercicio;
+
+public class Alumno {
+    String nombre;
+    String apellido;
+    int nota1;
+    int nota2;
+    int nota3;
+
+    public int getNota1() {
+        return nota1;
+    }
+
+    public void setNota1(int nota1) {
+        this.nota1 = nota1;
+    }
+
+    public int getNota2() {
+        return nota2;
+    }
+
+    public void setNota2(int nota2) {
+        this.nota2 = nota2;
+    }
+
+    public int getNota3() {
+        return nota3;
+    }
+
+    public void setNota3(int nota3) {
+        this.nota3 = nota3;
+    }
+   
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+    
+}
